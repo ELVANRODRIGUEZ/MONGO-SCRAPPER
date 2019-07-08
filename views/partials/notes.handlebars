@@ -1,8 +1,11 @@
- {{#if selArticle}}
-      <div id="notes">
-            <h2>{{selArticleTitle}}</h2>
-            <p id="savednotes">
-            </p>
+{{#if selArticle}}
+<div class="card" data-id="{{this._id}}" style="margin:20px;margin-bottom:30">
+      <div class="card-header" style="padding:10px">
+           <h3>{{selArticleTitle}}</h3>
+      <p id="savednotes">
+      </p>
+      </div>
+      <div class="card-body" style="padding:10px">
             <form>
             <label for="NivelChayotez">Honradez argumental</label>
             <select class="custom-select mr-sm-2" id="NivelChayotez">
@@ -12,19 +15,20 @@
                   <option value="3">Chayotero Premium</option>
                   <option value="4">Intrascendente</option>
             </select>
-                  <div class="form-group">
-                        <label for="bodyinput">Escribe un comentario:</label>
-                        <textarea class="form-control" id="bodyinput" name="body" rows="4"></textarea>
-                  </div>
-            <button class="btn btn-success"data-id={{selArticleId}} id="savenote">
+            <div class="form-group">
+                  <label for="bodyinput">Escribe un comentario:</label>
+                  <textarea class="form-control" id="bodyinput" name="body" rows="4"></textarea>
+            </div>
+            <button class="btn btn-success" data-id={{selArticleId}} id="savenote">
                   Save Note
             </button>
-            </form>
+      </form>
       </div>
-      {{else}}
-      <div id="notes">
-            <h2>Comment over any posts</h2>
+</div>
+{{else}}
+<div class="card" data-id={{this._id}} style="margin:20px;margin-bottom:30">
+      <div class="card-header" style="padding:10px">
+             <h3>Comment over any posts</h3>
       </div>
-      {{/if}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="app.js"></script>
+</div>
+{{/if}}

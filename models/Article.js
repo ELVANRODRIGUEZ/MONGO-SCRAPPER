@@ -9,13 +9,18 @@ var ArticleSchema = new Schema({
     required: true,
     unique: true
   },
-  //  short: {
-  //   type: String,
+   imageURL: {
+    type: String,
 
-  // },
+  },
+   writter: {
+    type: String,
+
+  },
   link: {
     type: String,
-    required: true
+    required: true,
+    default: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Sechium_chayote_espinas.jpg/512px-Sechium_chayote_espinas.jpg"
   },
   createdAt:{
     type: Date,

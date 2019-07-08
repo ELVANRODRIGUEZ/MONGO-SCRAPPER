@@ -1,34 +1,19 @@
+html {
+  min-width: 320px;
+}
 body {
   background-color: rgb(255, 255, 255);
-  /* color: orangered; */
 }
 #wrapper {
-  width: 960px;
+  width: 100%;
+  min-width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 5%;
 }
 #articleshb {
-  display: inline-block;
   overflow: auto;
-  width: 60%;
-  height: 700px;
+  height: 540px;
 }
-#notes {
-  float: right;
-  width: 30%;
-}
-textarea,
-input {
-  display: block;
-  width: 100%;
-  background-color: #fcf5c7;
-}
-input {
-  height: 36px;
-  font-size: 24px;
-}
-textarea {
-  height: 80px;
-  /* font-size: 18px; */
-}
+
+

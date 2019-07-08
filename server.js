@@ -81,13 +81,10 @@ app.get("/", function(req, res) {
     var $ = cheerio.load(response.data);
     // console.log(response);
 
-    // Now, we grab every article tag of the main section, and do the following:
-    // view view-home-opini-n view-id-home_opini_n view-display-id-panel_pane_4 view-dom-id-545cdcb09600c5f89ec2f6a8f957216f
-    var i = 0;
-    // view view-home-opini-n view-id-home_opini_n view-display-id-panel_pane_4 view-dom-id-e2ef4cba67765c7505328c420d1ec449
     $(
       "div.view.view-home-opini-n.view-id-home_opini_n.view-display-id-panel_pane_4"
     ).each(function(i, element) {
+
       var scrappFound = {};
 
       // Add the text and href of every link, and save them as properties of the result object
@@ -96,13 +93,28 @@ app.get("/", function(req, res) {
         .children()
         .text();
 
+      scrappFound.imageURL = $(element)
+        .find(
+          ".views-field.views-field-field-image-autor.views-field.views-field-field-image"
+		)
+		.find(".field-content")
+        .find("img")
+        .attr("data-src");
+	  
+		scrappFound.writter = $(element)
+        .find(
+          ".views-field.views-field-field-autor"
+		)
+		.find("a")
+        .text();
+
       scrappFound.link = $(element)
         .find(".field-content.views-field-field-nombre-del-contenido")
         .children()
         .attr("href");
 
-      // Test console.
-      // console.log(scrappFound);
+      //   Test console.
+      console.log(scrappFound);
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(scrappFound)
@@ -140,22 +152,22 @@ app.get("/articles", function(req, res) {
         res.json(err);
       });
   } else {
-	db.Article.find({})
-	.sort({ createdAt: -1 })
-	.then(function(dbArticle) {
-	  // Send found article back to the client
-	  console.log("here");
-	  res.render("articles", {
-		article: dbArticle,
-		selArticle: true,
-		selArticleTitle: articleTitle,
-		selArticleId: articleId
-	  });
-	})
-	.catch(function(err) {
-	  // If an error occurred, send it to the client
-	  res.json(err);
-	}); 
+    db.Article.find({})
+      .sort({ createdAt: -1 })
+      .then(function(dbArticle) {
+        // Send found article back to the client
+        console.log("here");
+        res.render("articles", {
+          article: dbArticle,
+          selArticle: true,
+          selArticleTitle: articleTitle,
+          selArticleId: articleId
+        });
+      })
+      .catch(function(err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
   }
 });
 

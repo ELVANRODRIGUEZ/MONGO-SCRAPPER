@@ -1,23 +1,44 @@
-<div id="wrapper">
-      <div id="articleshb">
-            {{#each article}}
-            <div class="card" data-id={{this._id}} 
-            style="margin-bottom:30px;margin-right:20px">
-                  <div class="card-header">
-                        <h3 data-id={{this._id}}>{{this.title}}</h3>
+<div class="col-md-6">
+      <div id="wrapper">
+            <div id="articleshb">
+                  {{#each article}}
+                  <div class="card" data-id={{this._id}} style="margin:20px;margin-bottom:30">
+                        <div class="card-header" style="padding:10px">
+                              <div class="inner-card card text-center " data-id={{this._id}} style="margin:5px;width:25%
+                              ;display:inline-block">
+                                    <div class="card-header" style="padding:0px;overflow:hidden">
+                                          <img class="block" data-id={{this._id}} src={{this.imageURL}}
+                                                style="width:100%" alt="{{this.writter}}">
+                                          </img>
+                                    </div>
+                                    <div class="card-body" style="padding:5px">
+                                          <p class="text-center" style="margin:0;font-size:8pt">
+                                                {{this.writter}}
+                                          </p>
+                                    </div>
+                              </div>
+                              <div class="align-top" style="display:inline-block;width:65%">
+                                    <h5 data-id={{this._id}}>{{this.title}}
+                                    </h5>
+                              </div>
+                        </div>
+                        <div class="card-body btn-dark" style="padding:10px">
+                              <a href={{this.link}} class="btn alert-primary" target="blank" style="font-size:10pt;margin:5px">Échale un lente al
+                                    artículo:</a>
+                              <button data-id={{this._id}} type="button" class="getNotes btn alert-light" clicked="no" style="font-size:10pt;margin:5px">
+                                    Comenta y califica
+                              </button>
+                        </div>
                   </div>
-                  <div class="card-body">
-                        <a href={{this.link}} class="btn btn-primary" target="blank">Échale un lente al artículo:</a>
-                        <button data-id={{this._id}} type="button" class="getNotes btn btn-info" clicked="no">
-                              Comenta y califica
-                        </button>
-                  </div>
-            </div>
 
-            {{/each}}
+                  {{/each}}
+            </div>
       </div>
-      {{!-- Comment on article Div --}}
-      {{> notes }}
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="app.js"></script>
+{{!-- Comment on article Div --}}
+<div class="col-md-6">
+      <div id="wrapper">
+
+            {{> notes }}
+      </div>
+</div>
