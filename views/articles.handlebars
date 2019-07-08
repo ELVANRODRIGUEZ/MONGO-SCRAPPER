@@ -1,0 +1,23 @@
+<div id="wrapper">
+      <div id="articleshb">
+            {{#each article}}
+            <div class="card" data-id={{this._id}} 
+            style="margin-bottom:30px;margin-right:20px">
+                  <div class="card-header">
+                        <h3 data-id={{this._id}}>{{this.title}}</h3>
+                  </div>
+                  <div class="card-body">
+                        <a href={{this.link}} class="btn btn-primary" target="blank">Échale un lente al artículo:</a>
+                        <button data-id={{this._id}} type="button" class="getNotes btn btn-info" clicked="no">
+                              Comenta y califica
+                        </button>
+                  </div>
+            </div>
+
+            {{/each}}
+      </div>
+      {{!-- Comment on article Div --}}
+      {{> notes }}
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="app.js"></script>

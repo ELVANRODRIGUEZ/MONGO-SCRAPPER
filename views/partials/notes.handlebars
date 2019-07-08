@@ -1,0 +1,30 @@
+ {{#if selArticle}}
+      <div id="notes">
+            <h2>{{selArticleTitle}}</h2>
+            <p id="savednotes">
+            </p>
+            <form>
+            <label for="NivelChayotez">Honradez argumental</label>
+            <select class="custom-select mr-sm-2" id="NivelChayotez">
+                  <option selected>Seleccionar...</option>
+                  <option value="1">Argumento Justo</option>
+                  <option value="2">Chayotero Aprendiz</option>
+                  <option value="3">Chayotero Premium</option>
+                  <option value="4">Intrascendente</option>
+            </select>
+                  <div class="form-group">
+                        <label for="bodyinput">Escribe un comentario:</label>
+                        <textarea class="form-control" id="bodyinput" name="body" rows="4"></textarea>
+                  </div>
+            <button class="btn btn-success"data-id={{selArticleId}} id="savenote">
+                  Save Note
+            </button>
+            </form>
+      </div>
+      {{else}}
+      <div id="notes">
+            <h2>Comment over any posts</h2>
+      </div>
+      {{/if}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="app.js"></script>
