@@ -1,7 +1,7 @@
 {{#if selArticle}}
 <div class="card" data-id="{{this._id}}" style="margin:20px;margin-bottom:30">
       <div class="card-header" style="padding:10px">
-           <h3>{{selArticleTitle}}</h3>
+           <h4>{{selArticleTitle}}</h4>
       <p id="savednotes">
       </p>
       </div>
@@ -26,9 +26,9 @@
       </div>
 </div>
 {{else}}
-<div class="card" data-id={{this._id}} style="margin:20px;margin-bottom:30">
+<div class="card" data-id="{{this._id}}" style="margin:20px;margin-bottom:30">
       <div class="card-header" style="padding:10px">
-             <h3>Comment over any posts</h3>
+             <h4>Comment over any posts</h4>
       </div>
 </div>
 {{/if}}
