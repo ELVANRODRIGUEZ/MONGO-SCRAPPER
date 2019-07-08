@@ -1,34 +1,45 @@
 {{#if selArticle}}
-<div class="card" data-id="{{this._id}}" style="margin:20px;margin-bottom:30">
+<div class="card" data-id="{{this._id}}" style="margin:20px">
       <div class="card-header" style="padding:10px">
-           <h4>{{selArticleTitle}}</h4>
-      <p id="savednotes">
-      </p>
+            <h5 id="nombreColumna">{{selArticleTitle}}</h5>
       </div>
       <div class="card-body" style="padding:10px">
             <form>
-            <label for="NivelChayotez">Honradez argumental</label>
-            <select class="custom-select mr-sm-2" id="NivelChayotez">
-                  <option selected>Seleccionar...</option>
-                  <option value="1">Argumento Justo</option>
-                  <option value="2">Chayotero Aprendiz</option>
-                  <option value="3">Chayotero Premium</option>
-                  <option value="4">Intrascendente</option>
-            </select>
-            <div class="form-group">
-                  <label for="bodyinput">Escribe un comentario:</label>
-                  <textarea class="form-control" id="bodyinput" name="body" rows="4"></textarea>
-            </div>
-            <button class="btn btn-success" data-id={{selArticleId}} id="savenote">
-                  Save Note
-            </button>
-      </form>
+                  <label for="NivelChayotez">Honradez argumental</label>
+                  <select class="custom-select mr-sm-2" id="NivelChayotez">
+                        <option selected>Seleccionar...</option>
+                        <option value="1">Justo</option>
+                        <option value="2">Chayoterón</option>
+                        <option value="3">Chayoterazo</option>
+                        <option value="4">Intrascendente</option>
+                  </select>
+                  <div class="form-group">
+                        <label for="bodyinput">Escribe un comentario:</label>
+                        <textarea class="form-control" id="bodyinput" name="body" rows="4"></textarea>
+                  </div>
+                  <button class="btn btn-success" data-id={{selArticleId}} id="savenote">
+                        Guardar comentario
+                  </button>
+            </form>
       </div>
 </div>
-{{else}}
-<div class="card" data-id="{{this._id}}" style="margin:20px;margin-bottom:30">
+{{#if selArticleHaveNones}}
+<div class="card" id="comentarios" data-id="{{this._id}}" style="margin:20px;margin-bottom:30">
       <div class="card-header" style="padding:10px">
-             <h4>Comment over any posts</h4>
+            <h4>Comentarios existentes</h4>
+      </div>
+      {{#each selArticleNotes}}
+      <div class="card-header" style="padding:10px">
+            <h5>Evaluación:&nbsp;<i>{{this.quality}}</i></h5>
+            <p style="margin-left:15px">"{{this.body}}"</p>
+      </div>
+      {{/each}}
+</div>
+{{/if}}
+{{else}}
+<div class="card" data-id="{{this._id}}" style="margin:20px">
+      <div class="card-header" style="padding:10px">
+            <h5>Escoge la columna y comenta</h5>
       </div>
 </div>
 {{/if}}

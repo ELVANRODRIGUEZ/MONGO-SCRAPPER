@@ -9,11 +9,15 @@ body {
   min-width: 320px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 5%;
+  /* padding-top: 5%; */
 }
 #articleshb {
   overflow: auto;
-  height: 540px;
+  height: 625px;
+}
+#comentarios {
+  overflow: auto;
+  height: 242px;
 }
 
 
